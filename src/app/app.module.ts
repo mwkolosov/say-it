@@ -8,7 +8,7 @@ import { MainComponent } from './components/main/main.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
-import {MatInputModule} from '@angular/material';
+import {MatInputModule, MatMenu, MatMenuItem, MatMenuModule, MatButtonModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,9 @@ import {MatInputModule} from '@angular/material';
     AppRoutingModule,
     MatFormFieldModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    MatMenuModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
