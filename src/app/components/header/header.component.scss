@@ -1,7 +1,10 @@
+$white: #FFF;
+
 .logo__link {
     font-family: 'Courgette', cursive;
     font-size: 30px;
     text-decoration: none;
+    color: $white;
 }
 
 .nav-header {
@@ -19,4 +22,8 @@
 
 .nav__list {
     padding-left: 0;
+}
+
+.nav__link {
+    color: $white;
 }

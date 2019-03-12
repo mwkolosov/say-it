@@ -2,8 +2,11 @@
 
 /* You can add global styles to this file, and also import other style files */
 
-$primary: #410093;
+$primary: #003d91;
 $disabled: rgba(0,0,0,0.54);
+$white: #FFF;
+$dark: #1f1f1f;
+
 
 .container {
   width: 1170px;
@@ -27,6 +30,15 @@ body {
   font-size: 14px;
 }
 
+header.main-header {
+  background-color: $primary;
+}
+
+.main-footer {
+  background-color: $dark;
+  color: $white;
+}
+
 .button_primary {
   background-color: $primary;
   color: #FFF;
@@ -37,6 +49,11 @@ body {
   background: #FFF;
 }
 
+.button_transparent {
+  color: $white;
+  background: #ffffff00;
+}
+
 .button_basic:hover {
   color: $primary;
 }
@@ -45,7 +62,7 @@ body {
   height: 85vh;
   position: relative;
   width: 100%;
-    
+  display: flex;
 }
 
 body {
@@ -60,9 +77,11 @@ body {
   position: relative;
 }
 
-.nav-header .mat-form-field-wrapper {
+.nav-footer .mat-form-field-wrapper {
   padding-bottom: 0;
+  border-color: $white;
 }
+
 
 .nav__item {
   display: inline-block;
@@ -74,6 +93,8 @@ body {
   text-transform: uppercase;
   padding-right: 24px;
 }
+
+
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
@@ -115,7 +136,8 @@ body {
    */
   
   h1 {
-    font-size: 2em;
+    font-size: 3em;
+    font-weight: 300;
     margin: 0.67em 0;
   }
   

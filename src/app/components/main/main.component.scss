@@ -2,8 +2,9 @@
     width: 40%;
 }
 
-.main__say-form {
+.main__welcome {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
@@ -17,6 +18,25 @@
 .main__sign-in {
     height: 100%;
     position: relative;
+    flex: 1;
+}
+
+.main__background {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form__sign-in, .form__sign-up {
+    display: flex;
+    flex-direction: column;
+}
+
+.tabs__register {
+    justify-content: center;
+    min-height: 300px;
+    min-width: 60%;
 }
 
 .img__main-background {
@@ -30,9 +50,16 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #ffffff2e;
+    background-color: #ffffff1c;
 }
 
-.main__button {
-    margin-left: 10px;
+.main__head-message {
+    text-align: center;
+    max-width: 450px;
+    letter-spacing: 0.7px;
+    color: #fff;
+}
+
+.main__head-title {
+    color: #fff;
 }
