@@ -1,46 +1,46 @@
-<section class="main__sign-in">
-  <img class="img__main-background" src="/assets/img/main.jpg" alt="Say It">
-  <div class="main__welcome">
-    <h1 class="main__head-title">Welcome</h1>
-    <p class="main__head-message">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit quos officia, pariatur praesentium atque fugit architecto sit possimus tenetur quaerat. A iure quibusdam mollitia sunt reprehenderit ullam tempore dolorem asperiores.</p>
-  </div>
-</section>
-<section class="main__background">
-
-    <mat-tab-group class="tabs__register">
-        <mat-tab label="Sign In">
-          <div class="form__sign-in">
-              <mat-form-field>
-                <input matInput placeholder="Login">
-              </mat-form-field>
-            
-              <mat-form-field>
-                <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
-                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-              </mat-form-field>
-              
-              <button class="button_primary main__button" mat-flat-button>Sign In</button>
-          </div>
-        </mat-tab>
-        <mat-tab label="Sign Up">
-          <div class="form__sign-up">
-              <mat-form-field>
-                <input matInput placeholder="Your Name">
-              </mat-form-field>
-
-              <mat-form-field>
-                  <input matInput placeholder="Login">
+<main class="main">
+  <section class="main__sign-in">
+    <img class="img__main-background" src="/assets/img/main.jpg" alt="Say It">
+    <div class="main__welcome">
+      <h1 class="main__head-title">Welcome</h1>
+      <p class="main__head-message">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit quos officia, pariatur praesentium atque fugit architecto sit possimus tenetur quaerat. A iure quibusdam mollitia sunt reprehenderit ullam tempore dolorem asperiores.</p>
+    </div>
+  </section>
+  <section class="main__background">
+  
+      <mat-tab-group class="tabs__register">
+          <mat-tab label="Sign In">
+            <div class="form__sign-in">
+                <mat-form-field>
+                  <input [(ngModel)]="username" matInput placeholder="Login">
                 </mat-form-field>
-            
-              <mat-form-field>
-                <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
-                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-              </mat-form-field>
               
-              <button class="button_primary main__button" mat-flat-button>Sign Up</button>
-          </div>
-        </mat-tab>
-    </mat-tab-group>
-
-    
-</section>
+                <mat-form-field>
+                  <input [(ngModel)]="password" matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </mat-form-field>
+                
+                <button (click)="signIn()" class="button_primary main__button" mat-flat-button>Sign In</button>
+            </div>
+          </mat-tab>
+          <mat-tab label="Sign Up">
+            <div class="form__sign-up">
+                <mat-form-field>
+                  <input matInput placeholder="Your Name">
+                </mat-form-field>
+  
+                <mat-form-field>
+                    <input matInput placeholder="Login">
+                  </mat-form-field>
+              
+                <mat-form-field>
+                  <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </mat-form-field>
+                
+                <button routerLink="/home" class="button_primary main__button" mat-flat-button>Sign Up</button>
+            </div>
+          </mat-tab>
+      </mat-tab-group>
+  </section>
+</main>
