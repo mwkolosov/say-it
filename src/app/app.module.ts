@@ -10,7 +10,7 @@ import { SignComponent } from './components/sign/sign.component';
 import { MainComponent } from './components/main/main.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
-import {MatIconRegistry} from '@angular/material';
+import {MatIconRegistry, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
 // tslint:disable-next-line:max-line-length
 import {MatInputModule, MatMenu, MatMenuItem, MatMenuModule, MatButtonModule, MatSelectModule, MatTabsModule, MatCardModule, MatListModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -37,7 +37,9 @@ import { FormsModule } from '@angular/forms';
     MatTabsModule,
     MatCardModule,
     MatListModule,
-    FormsModule
+    FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

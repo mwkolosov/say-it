@@ -11,7 +11,7 @@
           <mat-tab label="Sign In">
             <div class="form__sign-in">
                 <mat-form-field>
-                  <input [(ngModel)]="username" matInput placeholder="Login">
+                  <input [(ngModel)]="email" matInput placeholder="Login">
                 </mat-form-field>
               
                 <mat-form-field>
@@ -24,21 +24,35 @@
           </mat-tab>
           <mat-tab label="Sign Up">
             <div class="form__sign-up">
-                <mat-form-field>
-                  <input matInput placeholder="Your Name">
-                </mat-form-field>
-  
-                <mat-form-field>
-                    <input #Login matInput placeholder="Login">
-                  </mat-form-field>
-              
+
+              <mat-form-field>
+                <input [(ngModel)]="firstName" matInput placeholder="First Name">
+              </mat-form-field>
+
+              <mat-form-field>
+                <input [(ngModel)]="lastName" matInput placeholder="Last Name">
+              </mat-form-field>
+
+              <mat-form-field>
+                <input [(ngModel)]="username" matInput placeholder="Username">
+              </mat-form-field>
+
+              <mat-form-field>
+                  <input [(ngModel)]="email" matInput placeholder="Email">
+              </mat-form-field>
+            
+              <mat-form-field>
+                <input [(ngModel)]="password" matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </mat-form-field>
+
+              <mat-form-field>
+                <input [(ngModel)]="DOB" matInput [matDatepicker]="picker" placeholder="Choose a date of birth">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
                 
-                <mat-form-field>
-                  <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
-                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </mat-form-field>
-                
-                <button routerLink="/home" class="button_primary main__button" mat-flat-button>Sign Up</button>
+                <button (click)="signUp()" class="button_primary main__button" mat-flat-button>Sign Up</button>
             </div>
           </mat-tab>
       </mat-tab-group>

@@ -6,8 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign.component.scss']
 })
 export class SignComponent implements OnInit {
-  username = 'misha@gmail.com';
+  email = 'misha@gmail.com';
   password = '123456';
+  username = '';
+  DOB = '';
+  firstName = '';
+  lastName = '';
+
   error = '';
 
   constructor() { }
@@ -25,7 +30,7 @@ export class SignComponent implements OnInit {
         'content-type' : 'application/json'
       },
       body: JSON.stringify({
-        email: this.username,
+        email: this.email,
         password: this.password
       })
     })
@@ -44,4 +49,36 @@ export class SignComponent implements OnInit {
       this.error = error;
     });
   }
+
+  signUp() {
+    this.error = '';
+    fetch('https://say-it-twitter.herokuapp.com/api/users/new', {
+      method: 'POST',
+      // mode: 'no-cors',
+      headers: {
+        'content-type' : 'application/json'
+      },
+      body: JSON.stringify({
+        userName: this.username,
+        email: this.email,
+        password: this.password,
+        DOB: this.DOB,
+        firstName: this.firstName,
+        lastName: this.lastName
+      })
+    })
+    .then(async (response) => {
+      if (response.status !== 200) {
+        throw (await response.text());
+      }
+      return response.json();
+    })
+    .then((msg) => {
+      console.log(msg);
+      location.reload();
+    })
+    .catch((error) => {
+      this.error = error;
+    });
+}
 }
