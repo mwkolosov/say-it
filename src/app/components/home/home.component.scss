@@ -1,24 +1,16 @@
+@import "../../../styles.scss";
+
 .home-container {
     display: flex;
     padding-top: 40px;
-}
-
-.say-image__container {
-    max-height: 250px;
-    overflow: hidden;
-    width: 100%;
-}
-
-.say-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    margin: 0;
+    justify-content: space-between;
 }
 
 .dashboard__item {
     list-style-type: none;
-    padding-bottom: 12px;
+    padding-bottom: 30px;
+    display: flex;
+    align-items: center;
 }
 
 .dashboard__link {
@@ -30,29 +22,23 @@
     padding-left: 0;
 }
 
-.home-dashdoard {
-    width: 40%;
-}
-
 .saybox {
+    flex-grow: 2;
+    margin: 0px 50px;
     display: flex;
     flex-wrap: wrap;
+    flex: 1;
 }
 
-.say-card {
-    margin: 10px;
-    max-width: 100%;
+.icon {
+    width: 25px;
+    height: 25px;
+    padding-right: 15px;
+    padding-left: 10px;
+    fill: $dark;
 }
 
-.say__text {
-    padding-top: 15px;
+.saybox app-say {
+    width: 100%;
 }
 
-.say-card__login {
-    text-decoration: none;
-}
-
-.circle-user-image {
-    background-image: url('http://cdn01.cdn.justjaredjr.com/wp-content/uploads/2011/12/kaya-generation/kaya-scodelario-new-generation-04.jpg');
-    background-size: cover;
-  }

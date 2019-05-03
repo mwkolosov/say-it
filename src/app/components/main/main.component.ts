@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MainService} from '../../services/main.service';
+import { store, EventsName } from '../../store';
 
 @Component({
   selector: 'app-main',
@@ -14,10 +14,18 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     this.isLoading = true;
-    MainService.checkIsAuth().then((flag: any) => {
-      this.isLoading = false;
-      this.isSigned = flag;
-    });
+
+    if (store.isReady) {
+      this.onReady();
+    } else {
+      new Promise((resolve) => {
+        store.on(EventsName.READY, resolve);
+      }).then(this.onReady);
+    }
   }
 
+  onReady = () => {
+    this.isSigned = store.isSigned;
+    this.isLoading = false;
+  }
 }

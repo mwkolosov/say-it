@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { MainService} from '../../services/main.service';
+import { store, EventsName } from '../../store';
 
 @Component({
   selector: 'app-header',
@@ -13,8 +13,10 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    MainService.checkIsAuth().then((flag: any) => {
-      this.isSigned = flag;
+    new Promise((resolve) => {
+      store.on(EventsName.READY, resolve);
+    }).then(() => {
+      this.isSigned = store.isSigned;
     });
   }
 

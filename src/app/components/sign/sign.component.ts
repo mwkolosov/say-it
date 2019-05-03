@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign.component.scss']
 })
 export class SignComponent implements OnInit {
-  email = 'misha@gmail.com';
-  password = '123456';
+  email = '';
+  password = '';
   username = '';
   DOB = '';
   firstName = '';
@@ -74,8 +74,9 @@ export class SignComponent implements OnInit {
       return response.json();
     })
     .then((msg) => {
-      console.log(msg);
-      location.reload();
+      if (msg && msg.email) {
+        this.signIn();
+      }
     })
     .catch((error) => {
       this.error = error;

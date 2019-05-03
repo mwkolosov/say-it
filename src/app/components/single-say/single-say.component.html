@@ -1,0 +1,7 @@
+<div class="preloader" *ngIf="isLoading">
+  <div class="lds-ripple"><div></div><div></div></div>
+</div>
+
+<div *ngIf="!isLoading">
+  <app-say [say]="say"></app-say>
+</div>

@@ -15,6 +15,8 @@ import {MatIconRegistry, MatDatepickerModule, MatNativeDateModule} from '@angula
 import {MatInputModule, MatMenu, MatMenuItem, MatMenuModule, MatButtonModule, MatSelectModule, MatTabsModule, MatCardModule, MatListModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { SayComponent } from './components/say/say.component';
+import { SingleSayComponent } from './components/single-say/single-say.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     MainComponent,
     SignComponent,
+    SayComponent,
+    SingleSayComponent,
   ],
   imports: [
     BrowserAnimationsModule,
