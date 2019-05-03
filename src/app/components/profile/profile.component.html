@@ -1,0 +1,7 @@
+<div class="profile-container container">
+    <app-dashboard-menu></app-dashboard-menu>
+    <section class="saybox">
+      <app-say *ngFor="let say of says" [say]="say"></app-say>
+    </section>
+    <app-create-say></app-create-say>
+  </div>

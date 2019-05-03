@@ -1,0 +1,51 @@
+@import "../../../styles.scss";
+
+.dashboard__item {
+    list-style-type: none;
+    padding-bottom: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.dashboard__link {
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.dashboard__list {
+    padding-left: 0;
+    margin-top: 0;
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+    padding-right: 15px;
+    padding-left: 10px;
+    fill: $dark;
+}
+
+.home-dashdoard {
+    min-width: 130px;
+}
+
+.dashboard__link.mat-card {
+    height: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.dashboard__image {
+    width: 35%;
+    object-fit: cover;
+}
+
+.dashboard__login {
+    text-transform: lowercase;
+    margin: 0;
+    font-weight: 400;
+    font-size: 17px;
+    padding-left: 6px;
+}

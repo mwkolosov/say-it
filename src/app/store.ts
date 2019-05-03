@@ -15,7 +15,8 @@ export class Store {
     public isSigned = false;
     public users = [];
     public says = [];
-    public allSays = [];
+    public token = localStorage.getItem('token');
+    public user = this.token ? MainService.parseJwt(this.token) : '';
 
     constructor() {
         this.init();
@@ -65,7 +66,6 @@ export class Store {
     }
 
     getUsers() {
-        console.log('[APP] Loading users...');
         return new Promise((resolve) => {
             fetch('https://say-it-twitter.herokuapp.com/api/users/all', {
                 method: 'GET'
@@ -81,6 +81,7 @@ export class Store {
                 this.call(EventsName.USERS_LOAD);
                 resolve();
             });
+            console.log('[APP] Loading users...');
         });
     }
 
@@ -92,6 +93,25 @@ export class Store {
             }
         });
         return userName;
+    }
+
+    getUserLogin(userId) {
+        let userLogin = 'Unknown';
+        this.users.forEach((user) => {
+            if (user._id === userId) {
+                userLogin = user.userName;
+            }
+        });
+        return userLogin;
+    }
+
+    getCurrentUserName() {
+        const userName = '';
+        if (this.user) {
+            console.log('1111111', this.user);
+            return this.getUserLogin(this.user._id);
+            console.log('1111111', userName);
+        }
     }
 
     getUserPhoto(userId) {
@@ -127,7 +147,7 @@ export class Store {
     }
 
     getAllTweets() {
-        console.log('[APP] Loading tweets...');
+        console.log('[APP] Loading tweets...', this.says);
         const requests = this.users.map((user) => this.getUserTweets(user._id));
         return Promise.all(requests).then(() => this.call(EventsName.TWEETS_LOAD, this.says));
     }
@@ -170,10 +190,9 @@ export class Store {
 
     getAllSays() {
         const tweets = [];
-        const token = localStorage.getItem('token');
 
-        this.allSays.forEach((say) => {
-                tweets.push(this.translateSay(say));
+        this.says.forEach((say) => {
+            tweets.push(this.translateSay(say));
         });
         return tweets;
     }

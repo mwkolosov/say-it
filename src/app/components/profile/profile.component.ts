@@ -1,16 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { store, EventsName } from '../../store';
 
-
-
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class ProfileComponent implements OnInit {
   says = [];
-  // addUserPhoto = store.addUserPhoto();
+  constructor() { }
 
   ngOnInit() {
     if (store.isReady) {
@@ -25,6 +23,7 @@ export class HomeComponent implements OnInit {
   }
 
   onReady = () => {
-    this.says = store.getAllSays();
+    this.says = store.getAllTweetsOfCurrentUser();
   }
+
 }

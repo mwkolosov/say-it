@@ -17,6 +17,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { SayComponent } from './components/say/say.component';
 import { SingleSayComponent } from './components/single-say/single-say.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { DashboardMenuComponent } from './components/dashboard-menu/dashboard-menu.component';
+import { CreateSayComponent } from './components/create-say/create-say.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,9 @@ import { SingleSayComponent } from './components/single-say/single-say.component
     SignComponent,
     SayComponent,
     SingleSayComponent,
+    ProfileComponent,
+    DashboardMenuComponent,
+    CreateSayComponent,
   ],
   imports: [
     BrowserAnimationsModule,

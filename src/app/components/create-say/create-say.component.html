@@ -1,0 +1,10 @@
+<section class="home__say-form">
+    <mat-card class="say-form"> 
+
+      <mat-form-field class="say-form__input">
+        <textarea [(ngModel)]="sayMsg" matInput placeholder="Say, about everything..."></textarea>
+      </mat-form-field>
+      <button (click)="sayItForm()" class="button_full-width" mat-raised-button color="primary">Say It!</button>
+
+    </mat-card>
+  </section>

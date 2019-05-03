@@ -9,20 +9,32 @@ import { store, EventsName } from '../../store';
 })
 export class HeaderComponent implements OnInit {
   isSigned = false;
+  isLoading = false;
 
   constructor() { }
 
   ngOnInit() {
-    new Promise((resolve) => {
-      store.on(EventsName.READY, resolve);
-    }).then(() => {
-      this.isSigned = store.isSigned;
-    });
+    this.isLoading = true;
+
+    if (store.isReady) {
+      this.onReady();
+    } else {
+      new Promise((resolve) => {
+        store.on(EventsName.READY, resolve);
+      }).then(() => {
+        this.isSigned = store.isSigned;
+        this.onReady();
+      });
+    }
+  }
+
+  onReady = () => {
+    this.isLoading = false;
   }
 
   logOut() {
     localStorage.removeItem('token');
     location.reload();
-  }
+}
 
 }
