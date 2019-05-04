@@ -11,6 +11,10 @@ import { MainService } from '../../services/main.service';
 export class DashboardMenuComponent implements OnInit {
   profile = false;
   userName = '';
+  userAvatar = '';
+  formData = new FormData();
+  userPhoto = document.querySelector('#load__user-photo') as HTMLInputElement;
+  store = store;
 
   constructor(private router: Router) { }
 
@@ -26,12 +30,35 @@ export class DashboardMenuComponent implements OnInit {
 
   onReady = () => {
     this.userName = store.getCurrentUserName();
+    this.userAvatar = store.getCurrentUserPhoto();
+    this.userPhoto = document.querySelector('#load__user-photo') as HTMLInputElement;
+    console.log(this.userPhoto);
   }
 
   logOut() {
     localStorage.removeItem('token');
     location.reload();
   }
+
+  addUserPhoto() {
+    this.formData.append('avatar', this.userPhoto.files[0]);
+    fetch('https://say-it-twitter.herokuapp.com/api/users/uploadavatar', {
+        method: 'PUT',
+        headers: {
+            'x-auth-token' : localStorage.getItem('token')
+        },
+        // tslint:disable-next-line:max-line-length
+        body: this.formData
+    })
+    .then(async (response) => {
+        if (response.status !== 200) {
+            throw (await response.text());
+        }
+        console.log('photo', response.json);
+        location.reload();
+        return response.json();
+    });
+}
 
   profileRoute() {
     this.profile = (this.router.url === '/profile') ? true : false;

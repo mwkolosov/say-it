@@ -64,3 +64,21 @@
 .main__head-title {
     color: #fff;
 }
+
+@media (max-width: 767.98px) { 
+
+    .main {
+      flex-wrap: wrap;
+    }
+  
+    .main__sign-in {
+      height: 54%;
+      flex: 1;
+      order: 2;
+      min-width: 100%;
+    }
+  
+    .main__background[_ngcontent-c7] {
+      order: 3;
+    }
+   }

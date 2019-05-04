@@ -22,17 +22,18 @@
   </defs>
 </svg>
 
-<section class="home-dashdoard">
+
+<section class="home-dashdoard" [ngClass]="store.toggleMenu ? 'home-dashdoard_toggled' : 'danger'" >
     <ul class="dashboard__list">
       <li class="dashboard__item dashboard__preview-profile">
         <mat-card [routerLink]="[ '/profile']" [ngClass]="{'dashboard__link': !profileRoute()}">
-          <img [ngClass]="{'dashboard__image': !profileRoute()}" src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTQ3NTI2OTA4NzY5MjE2MTI4/drake_photo_by_prince_williams_wireimage_getty_479503454.jpg" alt="">
+          <img class="profile__image" [ngClass]="{'dashboard__image': !profileRoute()}" src={{userAvatar}} alt="">
           <h2 class="dashboard__login">@{{userName}}</h2>
         </mat-card>
       </li>
 
       <a *ngIf="profileRoute()" (click)='addUserPhoto()' >click</a>
-      <input type="file" />
+      <input *ngIf="profileRoute()" id="load__user-photo" type="file" />
 
       <li class="dashboard__item">
         <svg class="icon icon-home">

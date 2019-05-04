@@ -27,6 +27,7 @@ export class CreateSayComponent implements OnInit {
     .then(async (response) => {
       const msg = await response.text();
       console.log(msg);
+      location.reload();
       // says.push(msg);
     });
   }

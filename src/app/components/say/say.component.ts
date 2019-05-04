@@ -14,5 +14,6 @@ export class SayComponent implements OnInit {
 
   ngOnInit() {
     console.log( 'lol 3', this.say);
+    console.log( 'lol img', this.say.profilePhoto);
   }
 }

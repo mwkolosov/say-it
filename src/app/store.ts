@@ -13,6 +13,7 @@ export class Store {
 
     public isReady = false;
     public isSigned = false;
+    public toggleMenu = false;
     public users = [];
     public says = [];
     public token = localStorage.getItem('token');
@@ -47,6 +48,11 @@ export class Store {
         if (subscribers) {
             subscribers.forEach((callback) => callback(data));
         }
+    }
+
+    toggleEvent() {
+        this.toggleMenu = !this.toggleMenu;
+        console.log(this.toggleMenu);
     }
 
     checkIsAuth() {
@@ -106,11 +112,15 @@ export class Store {
     }
 
     getCurrentUserName() {
-        const userName = '';
         if (this.user) {
             console.log('1111111', this.user);
             return this.getUserLogin(this.user._id);
-            console.log('1111111', userName);
+        }
+    }
+
+    getCurrentUserPhoto() {
+        if (this.user) {
+            return this.getUserPhoto(this.user._id);
         }
     }
 
@@ -122,28 +132,6 @@ export class Store {
             }
         });
         return userPhoto;
-    }
-
-    addUserPhoto() {
-        fetch('https://say-it-twitter.herokuapp.com/api/users/uploadavatar', {
-            method: 'PUT',
-            headers: {
-                'content-type' : 'application/json',
-                'x-auth-token' : localStorage.getItem('token')
-            },
-            // tslint:disable-next-line:max-line-length
-            body: JSON.stringify({
-                avatar: 'https://pixel.nymag.com/imgs/daily/vulture/2018/06/28/drake/28-drake-2.w700.h700.jpg'
-            }),
-
-        })
-        .then(async (response) => {
-            if (response.status !== 200) {
-                throw (await response.text());
-            }
-            console.log('photo', response.json);
-            return response.json();
-        });
     }
 
     getAllTweets() {
@@ -191,7 +179,7 @@ export class Store {
     getAllSays() {
         const tweets = [];
 
-        this.says.forEach((say) => {
+        this.says.forEach((say, users) => {
             tweets.push(this.translateSay(say));
         });
         return tweets;
@@ -207,6 +195,7 @@ export class Store {
             id: say._id,
             author: userName,
             msg: say.tweetText,
+            profilePhoto: say.user.profilePhoto,
             date: new Date(say.creationDate).toLocaleString()
         };
     }

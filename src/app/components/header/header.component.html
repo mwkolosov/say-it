@@ -1,13 +1,20 @@
+<svg width="0" height="0" display="none" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <symbol id="icon-dehaze" viewBox="0 0 24 24">
+      <title>dehaze</title>
+      <path d="M2.016 5.484h19.969v2.016h-19.969v-2.016zM2.016 10.5h19.969v2.016h-19.969v-2.016zM2.016 15.516h19.969v1.969h-19.969v-1.969z"></path>
+      </symbol>
+  </defs>
+</svg>
+
 <div class="preloader" *ngIf="isLoading">
   <div class="lds-ripple"><div></div><div></div></div>
 </div>
 
 <header class="main-header">
   <nav class="nav nav-header container">
-    <ul *ngIf = "isSigned" class="nav__list">
-      <li class="nav__item"><a [routerLink]="['/']" class="nav__link">Home</a></li>
-      <li class="nav__item"><a href="" class="nav__link">Hashtag</a></li>
-      <li class="nav__item"><a href="" class="nav__link">Notification</a></li>
+    <ul *ngIf = "isSigned" class="nav__list" >
+      <a (click)="store.toggleEvent()" class="nav__item"><svg class="icon icon-dehaze"><use xlink:href="#icon-dehaze"></use></svg></a>
     </ul>
     <a href="" class="logo__link">Say It</a>
     <div *ngIf = "isSigned" class="header__sign-block">

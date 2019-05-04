@@ -8,10 +8,15 @@ import { store, EventsName } from '../../store';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  isSigned = false;
-  isLoading = false;
 
   constructor() { }
+  isSigned = false;
+  isLoading = false;
+  store = store;
+  toggleEvent = store.toggleEvent();
+
+
+status = false;
 
   ngOnInit() {
     this.isLoading = true;
@@ -36,5 +41,4 @@ export class HeaderComponent implements OnInit {
     localStorage.removeItem('token');
     location.reload();
 }
-
 }
