@@ -68,3 +68,11 @@
     display: none;
     transition: 0.3s all;
 }
+
+.dashboard__preview-profile {
+    cursor: pointer;
+}
+
+.change-user-photo {
+    flex-direction: column;
+}

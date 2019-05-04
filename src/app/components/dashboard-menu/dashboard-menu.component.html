@@ -23,17 +23,19 @@
 </svg>
 
 
-<section class="home-dashdoard" [ngClass]="store.toggleMenu ? 'home-dashdoard_toggled' : 'danger'" >
+<section class="home-dashdoard" [ngClass]="store.toggleMenu ? 'danger' : 'home-dashdoard_toggled'" >
     <ul class="dashboard__list">
       <li class="dashboard__item dashboard__preview-profile">
         <mat-card [routerLink]="[ '/profile']" [ngClass]="{'dashboard__link': !profileRoute()}">
-          <img class="profile__image" [ngClass]="{'dashboard__image': !profileRoute()}" src={{userAvatar}} alt="">
+          <img class="profile__image image_circle" [ngClass]="{'dashboard__image': !profileRoute()}" src={{userAvatar}} alt="">
           <h2 class="dashboard__login">@{{userName}}</h2>
         </mat-card>
       </li>
-
-      <a *ngIf="profileRoute()" (click)='addUserPhoto()' >click</a>
-      <input *ngIf="profileRoute()" id="load__user-photo" type="file" />
+      <li *ngIf="profileRoute()" class="dashboard__item change-user-photo">
+        <input id="load__user-photo" type="file" />
+        <button class="change-photo__button button_full-width" mat-raised-button color="primary" (click)='addUserPhoto()' >Change photo</button>
+      </li>
+      
 
       <li class="dashboard__item">
         <svg class="icon icon-home">
