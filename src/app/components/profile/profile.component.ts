@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { store, EventsName } from '../../store';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+
+
+export interface DialogData {
+  animal: 'panda' | 'unicorn' | 'lion';
+}
 
 @Component({
   selector: 'app-profile',
@@ -8,7 +14,9 @@ import { store, EventsName } from '../../store';
 })
 export class ProfileComponent implements OnInit {
   says = [];
+  store = store;
   constructor() { }
+
 
   ngOnInit() {
     if (store.isReady) {
@@ -24,6 +32,9 @@ export class ProfileComponent implements OnInit {
 
   onReady = () => {
     this.says = store.getAllTweetsOfCurrentUser();
+    console.log('1234567', store.activeUser);
   }
+
+
 
 }

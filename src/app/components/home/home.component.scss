@@ -10,9 +10,44 @@
     display: flex;
     flex-wrap: wrap;
     flex: 1;
+    max-width: 717px;
 }
 
 .saybox app-say {
     width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 1199.98px) { 
+    .saybox {
+      max-width: 550px;
+    }
+}
+
+@media (max-width: 991.98px) { 
+    .saybox {
+      max-width: 380px;
+    }
+}
+
+@media (max-width: 767.98px) { 
+    .home-container {
+      flex-direction: column;
+    }
+  
+    .saybox {
+      max-width: 100%;
+      order: 2;
+    }
+  
+    app-create-say {
+      margin: 0 50px 40px;
+    }
+   
+    .home-dashdoard {
+      display: flex;
+      justify-content: center;
+  }
 }
 

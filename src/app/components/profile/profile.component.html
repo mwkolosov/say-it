@@ -3,5 +3,33 @@
     <section class="saybox">
       <app-say *ngFor="let say of says" [say]="say"></app-say>
     </section>
-    <app-create-say></app-create-say>
-  </div>
+    <div class="sidebar">
+      <app-create-say></app-create-say>
+      <section class="profile__info">
+        <mat-card>
+          <mat-card-title class="user-info__login">@{{store.getCurrentUserName()}}</mat-card-title>
+          <mat-card-content class="user-info__name">
+              {{store.getCurrentUserFirstLastName()}}
+          </mat-card-content>
+
+          <div class="users-info__content">
+
+            <mat-card-content class="users-info__item">
+                {{store.getNumberOfSaysOfCurrentUser()}} <h3>tweets</h3>
+            </mat-card-content>
+
+            <mat-card-content class="users-info__item">
+                {{store.getNumberOfFollows()}} <h3>follows</h3>
+            </mat-card-content>
+
+            <mat-card-content class="users-info__item">
+                {{store.getNumberOfFollowers()}} <h3>followers</h3>
+            </mat-card-content>
+          </div>
+          
+        </mat-card>
+
+        
+      </section>
+    </div>
+</div>

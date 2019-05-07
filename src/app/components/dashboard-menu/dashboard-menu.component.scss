@@ -43,7 +43,7 @@
 }
 
 .profile__image {
-    width: 100%;
+    width: 18em;
     height: 18em;
     object-fit: cover;
 }
@@ -65,7 +65,7 @@
 .home-dashdoard_toggled {
     z-index: 2;
     left: -100vw;
-    display: none;
+    display: block;
     transition: 0.3s all;
 }
 
@@ -75,4 +75,24 @@
 
 .change-user-photo {
     flex-direction: column;
+}
+
+#load__user-photo {
+    margin-bottom: 20px;
+}
+
+@media (max-width: 767.98px) { 
+  
+    .home-dashdoard {
+      display: flex;
+      justify-content: center;
+  }
+
+  .home-dashdoard_toggled {
+      display: none;
+  }
+
+  .profile-container {
+    flex-direction: column;
+  }
 }

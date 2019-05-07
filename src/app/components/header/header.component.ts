@@ -39,6 +39,6 @@ status = false;
 
   logOut() {
     localStorage.removeItem('token');
-    location.reload();
+    location.assign('/');
 }
 }

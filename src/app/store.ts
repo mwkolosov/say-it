@@ -13,9 +13,13 @@ export class Store {
 
     public isReady = false;
     public isSigned = false;
-    public toggleMenu = false;
+    public toggleMenu = true;
     public users = [];
+    public activeUser = [];
     public says = [];
+    public saysCount = 0;
+    public followersCount = 0;
+    public followsCount = 0;
     public token = localStorage.getItem('token');
     public user = this.token ? MainService.parseJwt(this.token) : '';
 
@@ -33,6 +37,10 @@ export class Store {
 
         this.isReady = true;
         this.call(EventsName.READY);
+        if (window.screen.width >= 1024) {
+            this.toggleMenu = false;
+            console.log('togggle', this.toggleMenu);
+        }
     }
 
     on(event: EventsName, callback: (data?) => void) {
@@ -111,10 +119,53 @@ export class Store {
         return userLogin;
     }
 
+    getNumberOfSays(userId) {
+        let saysCount = 0;
+        this.users.forEach((user) => {
+            if (user._id === userId) {
+                saysCount = user.numberOfTweets;
+            }
+        });
+        return saysCount;
+    }
+
+    getNumberOfFollowers(userId) {
+        let followersCount = 0;
+        this.users.forEach((user) => {
+            if (user._id === userId) {
+                followersCount = user.numberOfFollowers;
+            }
+        });
+        return followersCount;
+    }
+
+    getNumberOfFollows(userId) {
+        let followsCount = 0;
+        this.users.forEach((user) => {
+            if (user._id === userId) {
+                followsCount = user.numberOfFollowings;
+            }
+        });
+        return followsCount;
+    }
+
     getCurrentUserName() {
         if (this.user) {
             console.log('1111111', this.user);
             return this.getUserLogin(this.user._id);
+        }
+    }
+
+    getCurrentUserFirstLastName() {
+        if (this.user) {
+            console.log('1111111', this.user);
+            return this.getUserName(this.user._id);
+        }
+    }
+
+    getNumberOfSaysOfCurrentUser() {
+        if (this.user) {
+            return this.getNumberOfSays(this.user._id);
         }
     }
 

@@ -10,7 +10,8 @@ import { SignComponent } from './components/sign/sign.component';
 import { MainComponent } from './components/main/main.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
-import {MatIconRegistry, MatDatepickerModule, MatNativeDateModule, MatDrawer, matDrawerAnimations, MatSidenavModule, MatButtonToggleModule, MatSlideToggleModule} from '@angular/material';
+// tslint:disable-next-line:max-line-length
+import {MatIconRegistry, MatDatepickerModule, MatNativeDateModule, MatDrawer, matDrawerAnimations, MatSidenavModule, MatButtonToggleModule, MatSlideToggleModule, MatDialogModule} from '@angular/material';
 // tslint:disable-next-line:max-line-length
 import {MatInputModule, MatMenu, MatMenuItem, MatMenuModule, MatButtonModule, MatSelectModule, MatTabsModule, MatCardModule, MatListModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -52,7 +53,8 @@ import { CreateSayComponent } from './components/create-say/create-say.component
     MatNativeDateModule,
     MatSidenavModule,
     MatButtonToggleModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

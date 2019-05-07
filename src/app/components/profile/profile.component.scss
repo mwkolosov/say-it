@@ -2,6 +2,7 @@
     display: flex;
     padding-top: 40px;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .saybox {
@@ -14,4 +15,48 @@
 
 .saybox app-say {
     width: 100%;
+}
+
+.users-info__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.users-info__item {
+    padding: 0 14px;
+    font-size: 15px;
+}
+
+.user-info__login {
+    text-align: center;
+}
+
+.profile__info {
+    margin-top: 25px;
+}
+
+.user-info__name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 100;
+    text-transform: uppercase;
+}
+
+@media (max-width: 767.98px) { 
+    .profile-container {
+    flex-direction: column;
+  }
+
+  .saybox {
+    max-width: 100%;
+    order: 2;
+  }
+
+  app-create-say {
+    margin: 0 50px 40px;
+    }
 }
