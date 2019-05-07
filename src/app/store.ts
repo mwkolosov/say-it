@@ -169,6 +169,18 @@ export class Store {
         }
     }
 
+    getNumberOfFollowersOfCurrentUser() {
+        if (this.user) {
+            return this.getNumberOfFollowers(this.user._id);
+        }
+    }
+
+    getNumberOfFollowsOfCurrentUser() {
+        if (this.user) {
+            return this.getNumberOfFollows(this.user._id);
+        }
+    }
+
     getCurrentUserPhoto() {
         if (this.user) {
             return this.getUserPhoto(this.user._id);
