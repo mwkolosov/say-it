@@ -21,6 +21,7 @@ import { SingleSayComponent } from './components/single-say/single-say.component
 import { ProfileComponent } from './components/profile/profile.component';
 import { DashboardMenuComponent } from './components/dashboard-menu/dashboard-menu.component';
 import { CreateSayComponent } from './components/create-say/create-say.component';
+import { DialogProfileComponent } from './components/dialog-profile/dialog-profile.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { CreateSayComponent } from './components/create-say/create-say.component
     SingleSayComponent,
     ProfileComponent,
     DashboardMenuComponent,
-    CreateSayComponent
+    CreateSayComponent,
+    DialogProfileComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -57,6 +59,9 @@ import { CreateSayComponent } from './components/create-say/create-say.component
     MatDialogModule
   ],
   providers: [],
+  entryComponents: [
+    DialogProfileComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { store, EventsName } from '../../store';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { DialogProfileComponent } from '../dialog-profile/dialog-profile.component';
 
 
-export interface DialogData {
-  animal: 'panda' | 'unicorn' | 'lion';
-}
+
 
 @Component({
   selector: 'app-profile',
@@ -14,8 +13,10 @@ export interface DialogData {
 })
 export class ProfileComponent implements OnInit {
   says = [];
+  resays = [];
   store = store;
-  constructor() { }
+  user = store.user;
+  constructor(public dialog: MatDialog) { }
 
 
   ngOnInit() {
@@ -32,7 +33,16 @@ export class ProfileComponent implements OnInit {
 
   onReady = () => {
     this.says = store.getAllTweetsOfCurrentUser();
-    console.log('1234567', store.activeUser);
+    this.resays = store.getAllRetweetsOfCurrentUser();
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogProfileComponent, {
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
 

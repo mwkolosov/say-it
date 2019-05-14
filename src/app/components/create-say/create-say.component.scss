@@ -1,0 +1,36 @@
+.input-file {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.input-file + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.icon-add_a_photo {
+    width: 35px;
+    height: 35px;
+    fill: #9E9E9E;
+}
+
+.say-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.say-form__input {
+    flex: 0.95;
+}
+
+.add-photo__box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -3,58 +3,54 @@
     <img class="img__main-background" src="/assets/img/main.jpg" alt="Say It">
     <div class="main__welcome">
       <h1 class="main__head-title">Welcome</h1>
-      <p class="main__head-message">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit quos officia, pariatur praesentium atque fugit architecto sit possimus tenetur quaerat. A iure quibusdam mollitia sunt reprehenderit ullam tempore dolorem asperiores.</p>
+      <p class="main__head-message">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit quos officia,
+        pariatur praesentium atque fugit architecto sit possimus tenetur quaerat. A iure quibusdam mollitia sunt
+        reprehenderit ullam tempore dolorem asperiores.</p>
     </div>
   </section>
   <section class="main__background">
-      <mat-tab-group class="tabs__register">
-          <mat-tab label="Sign In">
-            <div class="form__sign-in">
-                <mat-form-field>
-                  <input [(ngModel)]="email" matInput placeholder="Login">
-                </mat-form-field>
-              
-                <mat-form-field>
-                  <input [(ngModel)]="password" matInput placeholder="Enter your password" type="password">
-                </mat-form-field>
-                
-                <button (click)="signIn()" class="button_primary main__button" mat-flat-button>Sign In</button>
-            </div>
-          </mat-tab>
-          <mat-tab label="Sign Up">
-            <div class="form__sign-up">
+    <mat-tab-group class="tabs__register">
+      <mat-tab label="Sign In">
+        <div class="form__sign-in">
+          <mat-form-field>
+            <input [(ngModel)]="email" matInput placeholder="Login">
+          </mat-form-field>
 
-              <mat-form-field>
-                <input [(ngModel)]="firstName" matInput placeholder="First Name">
-              </mat-form-field>
+          <mat-form-field>
+            <input [(ngModel)]="password" matInput placeholder="Enter your password" type="password">
+          </mat-form-field>
 
-              <mat-form-field>
-                <input [(ngModel)]="lastName" matInput placeholder="Last Name">
-              </mat-form-field>
+          <button (click)="signIn()" class="button_primary main__button" mat-flat-button>Sign In</button>
+        </div>
+      </mat-tab>
+      <mat-tab label="Sign Up">
+        <div class="form__sign-up">
 
-              <mat-form-field>
-                <input [(ngModel)]="username" matInput placeholder="Username">
-              </mat-form-field>
+          <mat-form-field>
+            <input [(ngModel)]="firstName" matInput placeholder="First Name">
+          </mat-form-field>
 
-              <mat-form-field>
-                  <input [(ngModel)]="email" matInput placeholder="Email">
-              </mat-form-field>
-            
-              <mat-form-field>
-                <input [(ngModel)]="password" matInput placeholder="Enter your password" type="password">
-              </mat-form-field>
+          <mat-form-field>
+            <input [(ngModel)]="lastName" matInput placeholder="Last Name">
+          </mat-form-field>
 
-              <mat-form-field>
-                <input [(ngModel)]="DOB" matInput [matDatepicker]="picker" placeholder="Choose a date of birth">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field>
-                
-                <button (click)="signUp()" class="button_primary main__button" mat-flat-button>Sign Up</button>
-            </div>
-          </mat-tab>
-      </mat-tab-group>
-      <p class="form__error">{{error}}</p>
+          <mat-form-field>
+            <input [(ngModel)]="username" matInput placeholder="Username">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input [(ngModel)]="email" matInput placeholder="Email">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input [(ngModel)]="password" matInput placeholder="Enter your password" type="password">
+          </mat-form-field>
+
+          <button (click)="signUp()" class="button_primary main__button" mat-flat-button>Sign Up</button>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+    <p class="form__error">{{error}}</p>
   </section>
-  
+
 </main>

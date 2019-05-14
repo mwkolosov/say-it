@@ -37,10 +37,11 @@ export class DashboardMenuComponent implements OnInit {
 
   logOut() {
     localStorage.removeItem('token');
-    location.reload();
+    location.assign('/');
   }
 
   addUserPhoto() {
+    this.userPhoto = document.querySelector('#load__user-photo') as HTMLInputElement;
     this.formData.append('avatar', this.userPhoto.files[0]);
     fetch('https://say-it-twitter.herokuapp.com/api/users/uploadavatar', {
         method: 'PUT',

@@ -27,27 +27,27 @@ export class SignComponent implements OnInit {
       method: 'POST',
       // mode: 'no-cors',
       headers: {
-        'content-type' : 'application/json'
+        'content-type': 'application/json'
       },
       body: JSON.stringify({
         email: this.email,
         password: this.password
       })
     })
-    .then(async (response) => {
-      if (response.status !== 200) {
-        throw (await response.text());
-      }
-      return response.json();
-    })
-    .then((msg) => {
-      console.log(msg);
-      localStorage.setItem('token', msg.token);
-      location.reload();
-    })
-    .catch((error) => {
-      this.error = error;
-    });
+      .then(async (response) => {
+        if (response.status !== 200) {
+          throw (await response.text());
+        }
+        return response.json();
+      })
+      .then((msg) => {
+        console.log(msg);
+        localStorage.setItem('token', msg.token);
+        location.reload();
+      })
+      .catch((error) => {
+        this.error = error;
+      });
   }
 
   signUp() {
@@ -56,30 +56,29 @@ export class SignComponent implements OnInit {
       method: 'POST',
       // mode: 'no-cors',
       headers: {
-        'content-type' : 'application/json'
+        'content-type': 'application/json'
       },
       body: JSON.stringify({
         userName: this.username,
         email: this.email,
         password: this.password,
-        DOB: this.DOB,
         firstName: this.firstName,
         lastName: this.lastName
       })
     })
-    .then(async (response) => {
-      if (response.status !== 200) {
-        throw (await response.text());
-      }
-      return response.json();
-    })
-    .then((msg) => {
-      if (msg && msg.email) {
-        this.signIn();
-      }
-    })
-    .catch((error) => {
-      this.error = error;
-    });
-}
+      .then(async (response) => {
+        if (response.status !== 200) {
+          throw (await response.text());
+        }
+        return response.json();
+      })
+      .then((msg) => {
+        if (msg && msg.email) {
+          this.signIn();
+        }
+      })
+      .catch((error) => {
+        this.error = error;
+      });
+  }
 }

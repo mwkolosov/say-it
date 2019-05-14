@@ -1,0 +1,23 @@
+<h2>Edit User Information</h2>
+
+<section class="form__edit-info">
+  <mat-form-field>
+    <input matInput [(ngModel)]="userName" placeholder="">
+  </mat-form-field>
+  
+  <mat-form-field>
+    <input matInput [(ngModel)]="pass" placeholder="Password" type="password">
+  </mat-form-field>
+  
+  <mat-form-field>
+    <input matInput [(ngModel)]="firstName" placeholder="First Name">
+  </mat-form-field>
+  
+  <mat-form-field>
+    <input matInput [(ngModel)]="lastName" placeholder="Last Name">
+  </mat-form-field>
+
+  <button (click)="updateUserInfo()" mat-raised-button color="primary">Save</button>
+  <p>{{error}}</p>
+
+</section>

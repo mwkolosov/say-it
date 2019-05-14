@@ -8,12 +8,16 @@ import { store } from '../../store';
 })
 export class SayComponent implements OnInit {
   store = store;
+  img = false;
   @Input() say: any;
 
   constructor() { }
 
   ngOnInit() {
-    console.log( 'lol 3', this.say);
-    console.log( 'lol img', this.say.profilePhoto);
+  }
+
+  imgCheck() {
+    const img = (this.say.images === undefined) ? false : true;
+    return img;
   }
 }
