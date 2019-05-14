@@ -3,7 +3,7 @@
   <section class="saybox">
       <mat-tab-group class="saybox__feed">
           <mat-tab label="User Says"> <app-say *ngFor="let say of says" [say]="say"></app-say> </mat-tab>
-          <mat-tab label="Resays"> <app-say *ngFor="let say of resays" [say]="say"></app-say> </mat-tab>
+          <mat-tab label="Resays"> <app-say class="resays__tab"  *ngFor="let say of resays" [say]="say"></app-say> </mat-tab>
         </mat-tab-group>
   </section>
   <div class="sidebar">

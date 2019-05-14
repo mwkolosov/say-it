@@ -309,11 +309,11 @@ export class Store {
     }
 
     getAllRetweetsOfCurrentUser() {
-            console.log('[APP] Loading retweets...', this.resays);
-            const token = localStorage.getItem('token');
-            const user = token ? MainService.parseJwt(token) : '';
-            const requests = this.getUserRetweets(user._id);
-            return this.resays;
+        console.log('[APP] Loading retweets...', this.resays);
+        const token = localStorage.getItem('token');
+        const user = token ? MainService.parseJwt(token) : '';
+        const requests = this.getUserRetweets(user._id);
+        return this.resays;
     }
 
     sortSays() {
@@ -358,7 +358,10 @@ export class Store {
         const userName = this.getUserName(say.user._id);
         return {
             id: say._id,
+            authorId: say.user._id,
             images: say.images[0],
+            resayCount: say.numberOfRetweets,
+            likeCount: say.numberOfLikes,
             author: userName,
             msg: say.tweetText,
             profilePhoto: say.user.profilePhoto,
@@ -399,11 +402,29 @@ export class Store {
             });
     }
 
+    deleteResay(sayId) {
+        fetch('https://say-it-twitter.herokuapp.com/api/retweets/delete/' + sayId, {
+            method: 'DELETE',
+            // mode: 'no-cors',
+            headers: {
+                'x-auth-token': localStorage.getItem('token')
+            },
+        })
+            .then(async (response) => {
+                this.resays.forEach((say, index) => {
+                    if (say._id === sayId) {
+                        this.resays.splice(index, 1);
+                    }
+                });
+                this.call(EventsName.TWEETS_UPDATED, this.resays);
+            });
+    }
+
     textOfCurrentSay(sayId) {
         this.says.forEach((say) => {
             if (say._id === sayId) {
                 this.currentText = say.tweetText;
-                console.log(say.tweetText , 'im here');
+                console.log(say.tweetText, 'im here');
             }
         });
         return console.log('asdfghjhgfdsdfghgfdsasdfg', this.currentText);
@@ -412,25 +433,42 @@ export class Store {
     reSay(sayId) {
         this.textOfCurrentSay(sayId);
         fetch('https://say-it-twitter.herokuapp.com/api/retweets/share/' + sayId, {
+            method: 'POST',
+            // mode: 'no-cors',
+            headers: {
+                'x-auth-token': localStorage.getItem('token'),
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                retweetText: this.currentText
+            })
+        })
+            .then(async (response) => {
+                this.says.forEach((resay, index) => {
+                    if (resay._id === sayId) {
+                        console.log('dddd');
+                    }
+                });
+                this.call(EventsName.TWEETS_UPDATED, this.says);
+            });
+    }
+
+    likeSay(sayId) {
+        this.textOfCurrentSay(sayId);
+        fetch('https://say-it-twitter.herokuapp.com/api/tweetlikes/like/' + sayId, {
           method: 'POST',
           // mode: 'no-cors',
           headers: {
             'x-auth-token': localStorage.getItem('token'),
             'content-type': 'application/json'
-          },
-          body: JSON.stringify({
-            retweetText: this.currentText
-          })
+          }
         })
         .then(async (response) => {
-            this.says.forEach((resay, index) => {
-                if (resay._id === sayId) {
-                    console.log('dddd');
-                }
-            });
-            this.call(EventsName.TWEETS_UPDATED, this.says);
+                location.reload();
         });
       }
+
+
 }
 
 export const store = new Store();
