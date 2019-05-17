@@ -7,7 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "heroku-postbuild": "ng build --prod"
+    "postinstall": "ng build --prod"
   },
   "private": true,
   "dependencies": {
@@ -49,12 +49,12 @@
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.4.0",
+    "typescript": "~3.2.2",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0"
   },
   "engines": {
     "node": "10.13.0",
     "npm": "6.7.0"
-  },
-  "heroku-run-build-script": true
+  }
 }
