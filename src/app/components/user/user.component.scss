@@ -1,12 +1,5 @@
-.profile-container {
-    display: flex;
-    padding-top: 40px;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.saybox app-say {
-    width: 100%;
+.user__image {
+    padding: 20px;
 }
 
 .users-info__content {
@@ -39,10 +32,6 @@
     text-transform: uppercase;
 }
 
-.saybox__feed {
-    width: 100%;
-}
-
 @media (max-width: 767.98px) { 
     .profile-container {
     flex-direction: column;
@@ -53,7 +42,4 @@
     order: 2;
   }
 
-  app-create-say {
-    margin: 0 50px 40px;
-    }
 }

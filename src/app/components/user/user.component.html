@@ -1,0 +1,41 @@
+<div class="container user__container" *ngIf="!isLoading">
+  <app-dashboard-menu></app-dashboard-menu>
+  <section class="saybox">
+
+      <mat-tab-group class="saybox__feed">
+        <mat-tab label="User Says">
+          <app-say *ngFor="let say of says" [say]="say"></app-say>
+        </mat-tab>
+        <mat-tab label="Resays">
+          <app-say class="resays__tab" *ngFor="let say of resays" [say]="say"></app-say>
+        </mat-tab>
+      </mat-tab-group>
+
+  </section>
+
+  <section class="user__info">
+    <mat-card>
+      <img class="profile__image image_circle user__image" src={{userAvatar}}>
+      <mat-card-title class="user-info__login">@{{getUserLogin}}</mat-card-title>
+      <mat-card-content class="user-info__name">
+        {{getUserName}}
+      </mat-card-content>
+
+      <div class="users-info__content">
+
+        <mat-card-content class="users-info__item">
+          {{getNumberOfSays}} <h3>tweets</h3>
+        </mat-card-content>
+
+        <mat-card-content class="users-info__item">
+          {{getNumberOfFollows}} <h3>follows</h3>
+        </mat-card-content>
+
+        <mat-card-content class="users-info__item">
+          {{getNumberOfFollowers}} <h3>followers</h3>
+        </mat-card-content>
+      </div>
+
+    </mat-card>
+  </section>
+</div>

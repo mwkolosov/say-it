@@ -1,23 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { store, EventsName } from '../../store';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import { DialogProfileComponent } from '../dialog-profile/dialog-profile.component';
-
-
 
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  selector: 'app-user-feed',
+  templateUrl: './user-feed.component.html',
+  styleUrls: ['./user-feed.component.sass']
 })
-export class ProfileComponent implements OnInit {
+export class UserFeedComponent implements OnInit {
   says = [];
   resays = [];
   store = store;
-  user = store.user;
-  constructor(public dialog: MatDialog) { }
 
+  constructor() { }
 
   ngOnInit() {
     if (store.isReady) {
@@ -35,4 +30,5 @@ export class ProfileComponent implements OnInit {
     this.says = store.getAllTweetsOfCurrentUser();
     this.resays = store.getAllRetweetsOfCurrentUser();
   }
+
 }

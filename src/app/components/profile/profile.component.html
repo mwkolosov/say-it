@@ -1,37 +1,12 @@
 <div class="profile-container container">
   <app-dashboard-menu></app-dashboard-menu>
   <section class="saybox">
-      <mat-tab-group class="saybox__feed">
-          <mat-tab label="User Says"> <app-say *ngFor="let say of says" [say]="say"></app-say> </mat-tab>
-          <mat-tab label="Resays"> <app-say class="resays__tab"  *ngFor="let say of resays" [say]="say"></app-say> </mat-tab>
-        </mat-tab-group>
+      <app-user-feed></app-user-feed>
   </section>
   <div class="sidebar">
     <app-create-say></app-create-say>
     <section class="profile__info">
-      <mat-card>
-        <mat-card-title class="user-info__login">@{{store.getCurrentUserName()}}</mat-card-title>
-        <mat-card-content class="user-info__name">
-          {{store.getCurrentUserFirstLastName()}}
-        </mat-card-content>
-
-        <div class="users-info__content">
-
-          <mat-card-content class="users-info__item">
-            {{store.getNumberOfSaysOfCurrentUser()}} <h3>tweets</h3>
-          </mat-card-content>
-
-          <mat-card-content class="users-info__item">
-            {{store.getNumberOfFollowsOfCurrentUser()}} <h3>follows</h3>
-          </mat-card-content>
-
-          <mat-card-content class="users-info__item">
-            {{store.getNumberOfFollowersOfCurrentUser()}} <h3>followers</h3>
-          </mat-card-content>
-        </div>
-        <button mat-button (click)="openDialog()">Edit</button>
-
-      </mat-card>
+      <app-user-info></app-user-info>
     </section>
   </div>
 </div>

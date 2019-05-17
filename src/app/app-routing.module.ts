@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { MainComponent } from './components/main/main.component';
 import { SingleSayComponent } from './components/single-say/single-say.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { UserComponent } from './components/user/user.component';
 
 const routes: Routes = [
   // {path: '', component: SignComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
 const guardRoutes: Routes = [
   { path: '', component: MainComponent },
   { path: 'say/:id', component: SingleSayComponent},
+  { path: 'user/:id', component: UserComponent},
   { path: 'profile', component: ProfileComponent}
 ];
 

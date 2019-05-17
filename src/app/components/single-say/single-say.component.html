@@ -1,7 +1,4 @@
-<div class="preloader" *ngIf="isLoading">
-  <div class="lds-ripple"><div></div><div></div></div>
-</div>
-
-<div *ngIf="!isLoading">
-  <app-say [say]="say"></app-say>
+<div class="container single-say__container" *ngIf="!isLoading">
+  <app-dashboard-menu></app-dashboard-menu>
+  <app-say class="single__say" [say]="say"></app-say>
 </div>

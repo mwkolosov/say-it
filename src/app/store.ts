@@ -1,6 +1,7 @@
 import { MainService } from '../app/services/main.service';
 import { observe } from 'rxjs-observe';
 import { SyncAsync } from '@angular/compiler/src/util';
+import { ActivatedRoute } from '@angular/router';
 
 export enum EventsName {
     READY,

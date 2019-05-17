@@ -18,6 +18,9 @@ $dark: #1f1f1f;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  display: flex;
+  padding-top: 40px;
+  justify-content: space-between;
 }
 
 a {
@@ -109,6 +112,43 @@ body {
 
 .image_circle {
   border-radius: 50%;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+app-single-say {
+  flex: 1 0 auto;
+}
+
+app-footer {
+  flex-shrink: 0;
+}
+
+app-user-feed {
+  width: 100%;
+}
+
+.saybox {
+  flex-grow: 2;
+  margin: 0px 50px;
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  max-width: 465px;
+}
+
+.saybox__feed {
+  width: 100%;
+}
+
+.profile__image {
+  width: 18em;
+  height: 18em;
+  object-fit: cover;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -466,6 +506,10 @@ body {
     display: block!important;
 }
 
+.single__say .say-card {
+  max-width: 650px;
+}
+
   // Preloader
 
   .preloader {
@@ -525,6 +569,10 @@ body {
 
 // Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px) { 
+  .container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
  }
 

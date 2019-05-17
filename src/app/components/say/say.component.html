@@ -1,7 +1,7 @@
 <mat-card class="say-card">
   <mat-card-header>
     <div  class="circle-user" mat-card-avatar><img class="circle-user-image" src="{{say.profilePhoto}}"></div>
-    <mat-card-title><a class="say-card__login" href="/">{{say.author}}</a></mat-card-title>
+    <mat-card-title><a class="say-card__login" [routerLink]="'/user/' + say.authorId">{{say.author}}</a></mat-card-title>
     <mat-card-subtitle>{{say.date}}</mat-card-subtitle>
   </mat-card-header>
 
@@ -9,7 +9,7 @@
     <img *ngIf="imgCheck()" class="say-image" mat-card-image src="{{say.images}}">
   </div>
 
-  <mat-card-content>
+  <mat-card-content class="pointer">
     <p [routerLink]="'/say/' + say.id" class="say__text">
      {{say.msg}}
     </p>

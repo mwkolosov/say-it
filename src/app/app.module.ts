@@ -22,6 +22,9 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { DashboardMenuComponent } from './components/dashboard-menu/dashboard-menu.component';
 import { CreateSayComponent } from './components/create-say/create-say.component';
 import { DialogProfileComponent } from './components/dialog-profile/dialog-profile.component';
+import { UserComponent } from './components/user/user.component';
+import { UserFeedComponent } from './components/user-feed/user-feed.component';
+import { UserInfoComponent } from './components/user-info/user-info.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { DialogProfileComponent } from './components/dialog-profile/dialog-profi
     ProfileComponent,
     DashboardMenuComponent,
     CreateSayComponent,
-    DialogProfileComponent
+    DialogProfileComponent,
+    UserComponent,
+    UserFeedComponent,
+    UserInfoComponent
   ],
   imports: [
     BrowserAnimationsModule,
