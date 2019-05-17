@@ -14,7 +14,7 @@
   </section>
 
   <section class="user__info">
-    <mat-card>
+    <mat-card class="user__card">
       <img class="profile__image image_circle user__image" src={{userAvatar}}>
       <mat-card-title class="user-info__login">@{{getUserLogin}}</mat-card-title>
       <mat-card-content class="user-info__name">
@@ -35,6 +35,7 @@
           {{getNumberOfFollowers}} <h3>followers</h3>
         </mat-card-content>
       </div>
+      <button class="follow__button" mat-raised-button color="primary">Follow</button>
 
     </mat-card>
   </section>

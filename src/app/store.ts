@@ -1,7 +1,4 @@
 import { MainService } from '../app/services/main.service';
-import { observe } from 'rxjs-observe';
-import { SyncAsync } from '@angular/compiler/src/util';
-import { ActivatedRoute } from '@angular/router';
 
 export enum EventsName {
     READY,
@@ -12,7 +9,6 @@ export enum EventsName {
 
 export class Store {
     private subscribers = new Map<EventsName, ((data?: any) => void)[]>();
-
     public isReady = false;
     public isSigned = false;
     public toggleMenu = false;
@@ -36,13 +32,12 @@ export class Store {
         await this.checkIsAuth();
         await this.getUsers();
         await this.getAllTweets();
-        await this.getAllRetweetsOfCurrentUser();
+        // await this.getAllRetweetsOfCurrentUser();
         await this.sortSays();
         await this.sortResays();
 
         console.log('[APP][Store]', this.users);
         console.log('[APP][Store]', this.says);
-        console.log('[tAPP][Store]', this.resays);
 
         this.isReady = true;
         this.call(EventsName.READY);
@@ -243,7 +238,6 @@ export class Store {
     }
 
     getAllRetweets() {
-        console.log('[APP] Loading retweets...', this.resays);
         const requests = this.users.map((user) => this.getUserRetweets(user._id));
         return Promise.all(requests).then(() => this.call(EventsName.TWEETS_LOAD, this.resays));
     }
@@ -310,7 +304,6 @@ export class Store {
     }
 
     getAllRetweetsOfCurrentUser() {
-        console.log('[APP] Loading retweets...', this.resays);
         const token = localStorage.getItem('token');
         const user = token ? MainService.parseJwt(token) : '';
         const requests = this.getUserRetweets(user._id);
@@ -330,7 +323,6 @@ export class Store {
     }
 
     sortResays() {
-        console.log(this.resays);
         this.resays.sort((a, b) => {
             if (a.date > b.date) {
                 return -1;
@@ -378,6 +370,9 @@ export class Store {
         const userName = this.getUserName(say.tweet.user._id);
         return {
             author: userName,
+            id: say._id,
+            authorId: say.tweet.user._id,
+            rt: say.isRetweet,
             msg: say.tweet.tweetText,
             images: say.tweet.images[0],
             profilePhoto: say.tweet.user.profilePhoto,
@@ -428,7 +423,7 @@ export class Store {
                 console.log(say.tweetText, 'im here');
             }
         });
-        return console.log('asdfghjhgfdsdfghgfdsasdfg', this.currentText);
+        return this.currentText;
     }
 
     reSay(sayId) {
@@ -447,7 +442,6 @@ export class Store {
             .then(async (response) => {
                 this.says.forEach((resay, index) => {
                     if (resay._id === sayId) {
-                        console.log('dddd');
                     }
                 });
                 this.call(EventsName.TWEETS_UPDATED, this.says);
